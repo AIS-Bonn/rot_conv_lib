@@ -2,9 +2,9 @@
 
 **Author:** Philipp Allgeuer
 
-**Version:** 1.0.1
+**Version:** 1.1.0
 
-**Date:** 11/08/16
+**Date:** 12/08/16
 
 ##General Overview##
 
@@ -26,7 +26,37 @@ There are three ways of using the library:
 
 Due to the small and efficient nature of the library, one of the first two options is recommended. Very minimal benefit is expected from building a dynamic library.
 
-Note that as at release v1.0.1, the required source files are simply `rot_conv.h` and `rot_conv.cpp`.
+Note that as at release v1.1.0, the required source files are simply `rot_conv.h` and `rot_conv.cpp`.
+
+##Compiling the Code##
+
+If you want to compile the unit tests as well (do this first):
+
+~~~
+git clone https://github.com/google/googletest googletest
+~~~
+
+Compile and run the library and sample code:
+
+~~~
+mkdir build
+cd build
+cmake ..
+make
+./rot_conv_sample_direct
+~~~
+
+To run the unit tests:
+
+~~~
+./test_rot_conv
+~~~
+
+To restore the initial clean state:
+
+~~~
+rm -rf build googletest
+~~~
 
 ##Notes on Numerical Stability##
 

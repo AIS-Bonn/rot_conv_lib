@@ -31,6 +31,9 @@ namespace rot_conv
 	typedef Eigen::Vector3d ZVec;
 	typedef Eigen::Vector3d Vec3;
 
+	// Stream insertion operator for the Quat type
+	inline std::ostream& operator<<(std::ostream& os, const Quat& q) { return os << "(" << q.w() << ", " << q.x() << ", " << q.y() << ", " << q.z() << ")"; }
+
 	// Euler angles struct
 	struct EulerAngles // Format: ZYX Euler (yaw, pitch, roll)
 	{
@@ -51,6 +54,9 @@ namespace rot_conv
 		double pitch; // Pitch: theta is in [-pi/2,pi/2]
 		double roll;  // Roll:   phi  is in (-pi,pi]
 	};
+
+	// Stream insertion operator for the EulerAngles struct
+	inline std::ostream& operator<<(std::ostream& os, const EulerAngles& e) { return os << "(" << e.yaw << ", " << e.pitch << ", " << e.roll << ")"; }
 
 	// Fused angles struct
 	struct FusedAngles // Format: (fusedYaw, fusedPitch, fusedRoll, hemi)
@@ -75,6 +81,9 @@ namespace rot_conv
 		bool hemi;         // Hemisphere:    h   = hemi  is in {-1,1} (stored as {false,true} respectively)
 	};
 
+	// Stream insertion operator for the FusedAngles struct
+	inline std::ostream& operator<<(std::ostream& os, const FusedAngles& f) { return os << "(" << f.fusedYaw << ", " << f.fusedPitch << ", " << f.fusedRoll << ", " << (f.hemi ? "1" : "-1") << ")"; }
+
 	// Tilt angles struct
 	struct TiltAngles // Format: (fusedYaw, tiltAxisAngle, tiltAngle)
 	{
@@ -96,6 +105,9 @@ namespace rot_conv
 		double tiltAxisAngle; // Tilt axis angle: gamma is in (-pi,pi]
 		double tiltAngle;     // Tilt angle:      alpha is in [0,pi]
 	};
+
+	// Stream insertion operator for the TiltAngles struct
+	inline std::ostream& operator<<(std::ostream& os, const TiltAngles& t) { return os << "(" << t.fusedYaw << ", " << t.tiltAxisAngle << ", " << t.tiltAngle << ")"; }
 
 	// ##########################################
 	// #### Rotation checking and validation ####
