@@ -2,12 +2,16 @@
 cmake_minimum_required(VERSION 2.8)
 project(rotconv)
 
+# Enable C++11
+message(STATUS "Enabling C++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
 # Find Eigen
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 # Include directories
-include_directories(${PROJECT_SOURCE_DIR}/src)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 
 #
 # Build libraries
@@ -16,11 +20,13 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 # Build a static library
 add_library(rotconvstatic STATIC
 	src/rot_conv.cpp
+	src/rot_conv_extras.cpp
 )
 
 # Build a shared library
 add_library(rotconvshared SHARED
 	src/rot_conv.cpp
+	src/rot_conv_extras.cpp
 )
 
 #
@@ -31,6 +37,7 @@ add_library(rotconvshared SHARED
 add_executable(rot_conv_sample_direct
 	test/rot_conv_sample.cpp
 	src/rot_conv.cpp
+	src/rot_conv_extras.cpp
 )
 
 # Build the sample target with the static library

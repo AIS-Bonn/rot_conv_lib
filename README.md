@@ -1,18 +1,18 @@
-#Rotations Conversion Library#
+# Rotations Conversion Library
 
 **Author:** Philipp Allgeuer
 
-**Version:** 1.1.0
+**Version:** 1.2.0
 
-**Date:** 12/08/16
+**Date:** 22/01/18
 
-##General Overview##
+## General Overview
 
-The Rotations Conversion Library (RCL) is a collection of functions that address common computations and numerical handling of rotations in 3D Euclidean space. The rotation representations that are supported are rotation matrices (`Rotmat`), Quaternions (`Quat`), intrinsic ZYX Euler angles (`Euler`), fused angles (`Fused`) and tilt angles (`Tilt`). In addition to the core competency of being able to convert between each of the representations, operations such as inversion, ZYX yaw extraction, fused yaw extraction, renormalisation, equality detection, vector rotation and much more have been implemented. Unit tests for each function are provided to ensure that the library performs exactly as it should. The implementation of the Rotations Conversion Library is based on the very related Matlab/Octave Rotations Library (MORL), which is a highly tested reference implementation for the required conversion algorithms (see https://github.com/AIS-Bonn/matlab_octave_rotations_lib).
+The Rotations Conversion Library (RCL) is a collection of functions that address common computations and numerical handling of rotations in 3D Euclidean space. The rotation representations that are supported are rotation matrices (`Rotmat`), Quaternions (`Quat`), intrinsic ZYX Euler angles (`Euler`), fused angles (`Fused`) and tilt angles (`Tilt`). In addition to the core competency of being able to convert between each of the representations, operations such as inversion, ZYX yaw extraction, fused yaw extraction, renormalisation, equality detection, vector rotation and much more have been implemented. Tilt vector addition and the relative and absolute tilt phase spaces are also supported. Unit tests for each function are provided to ensure that the library performs exactly as it should. The implementation of the Rotations Conversion Library is based on the very related Matlab/Octave Rotations Library (MORL), which is a highly tested reference implementation for the required conversion algorithms (see https://github.com/AIS-Bonn/matlab_octave_rotations_lib).
 
-Please note that the ***fused angles*** and ***tilt angles*** rotation representations are the invention of the author, and have been specifically designed to overcome the many limitations and peculiarities of the Euler angles representation. More information can be found in the IROS paper *"Fused Angles: A Representation of Body Orientation for Balance"* (at time of writing available online at http://www.ais.uni-bonn.de/~pallgeuer/papers/IROS_2015_fused.pdf).
+Please note that the ***fused angles*** and ***tilt angles*** rotation representations are the invention of the author, and have been specifically designed to overcome the many limitations and peculiarities of the Euler angles representation. More information can be found in the IROS paper *"Fused Angles: A Representation of Body Orientation for Balance"* (at time of writing available online at http://www.ais.uni-bonn.de/~pallgeuer/papers/IROS_2015_fused.pdf). The tilt phase space is also an invention of the author.
 
-##Getting Started##
+## Getting Started
 
 This library is implemented as a collection of platform-independent C++ source files. To get started just clone the `rot_conv_lib` repository to the desired location on your computer.
 
@@ -26,9 +26,7 @@ There are three ways of using the library:
 
 Due to the small and efficient nature of the library, one of the first two options is recommended. Very minimal benefit is expected from building a dynamic library.
 
-Note that as at release v1.1.0, the required source files are simply `rot_conv.h` and `rot_conv.cpp`.
-
-##Compiling the Code##
+## Compiling the Code
 
 If you want to compile the unit tests as well (do this first):
 
@@ -58,7 +56,7 @@ To restore the initial clean state:
 rm -rf build googletest
 ~~~
 
-##Notes on Numerical Stability##
+## Notes on Numerical Stability
 
 Although as much as possible has been done to try to avoid the problems associated with numerical stability and accuracy, the extent to which this is possible is limited by the presence of singularities in the rotation representations, floating point errors, and the use of (unavoidable and required) functions of high numerical sensitivity. For example:
 
@@ -84,7 +82,7 @@ double calpha = sqrt(1.0 - (sth*sth + sphi*sphi))
 
 can quickly turn into comparatively larger errors in the output variables, for certain *highly specific* input scenarios.
 
-##Quick Help##
+## Quick Help
 
 Every function of the library is well-commented. A summary of the five rotation representations is shown in the following table.
 
@@ -98,11 +96,11 @@ Tilt angles | `Tilt` | (&psi;, &gamma;, &alpha;) =<br>`(fused yaw, tilt axis ang
 
 The ***fused angles*** and ***tilt angles*** rotation representations are the invention of the author (see *General Overview*).
 
-##Where To Get More Help?##
+## Where To Get More Help?
 
 If a look into the source code does not resolve an issue you have with the library, then you can contact the author at the email address given in the *Bugs and Improvements* section.
 
-##Bugs and Improvements##
+## Bugs and Improvements
 
 I welcome all feedback, suggestions and bug reports. If you improve or fix anything about the library then I encourage you to let me know so that the library can be improved for everyone!
 
