@@ -98,7 +98,7 @@ The ***fused angles*** and ***tilt angles*** rotation representations are the in
 
 ## Where To Get More Help?
 
-If a look into the source code does not resolve an issue you have with the library, then you can contact the author at the email address given in the *Bugs and Improvements* section.
+If a look into the source code does not resolve an issue you have with the library, then you can open a GitHub issue.
 
 ## Bugs and Improvements
 
