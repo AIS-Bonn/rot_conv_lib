@@ -102,6 +102,4 @@ If a look into the source code does not resolve an issue you have with the libra
 
 ## Bugs and Improvements
 
-I welcome all feedback, suggestions and bug reports. If you improve or fix anything about the library then I encourage you to let me know so that the library can be improved for everyone!
-
-**Email:** `pallgeuer[at]ais.uni-bonn.de`
+I welcome all feedback, suggestions and bug reports (by opening a GitHub issue). If you improve or fix anything about the library then I encourage you to let me know so that the library can be improved for everyone!
