@@ -11,7 +11,7 @@
 using namespace rot_conv;
 
 // Main function
-int main(int argc, char **argv)
+int main(int, char **)
 {
 	// Initialise random numbers
 	std::srand(std::time(0));
